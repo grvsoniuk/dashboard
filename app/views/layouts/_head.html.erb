@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= content_for?(:title) ? yield(:title) : "CS Dashboard" %></title>
+<link href="/assets/favicon.ico" rel="shortcut icon"/>
+<%= csrf_meta_tags %>
+
+<%= stylesheet_link_tag "application", :media => "all" %>
+<script>
+	window['adrum-start-time'] = new Date().getTime();
+	(function(config){
+	    config.appKey = '<%= Rails.application.config.adrum_key %>';
+	    config.adrumExtUrlHttp = 'http://cdn.appdynamics.com';
+	    config.adrumExtUrlHttps = 'https://cdn.appdynamics.com';
+	    config.beaconUrlHttp = 'http://col.eum-appdynamics.com';
+	    config.beaconUrlHttps = 'https://col.eum-appdynamics.com';
+	    config.xd = {enable : false};
+	    config.geoResolverUrlHttp = 'http://my.geo.com/geo/';
+	})(window['adrum-config'] || (window['adrum-config'] = {}));	
+</script>
+
+<%= javascript_include_tag "adrum/adrum" %>
+<%= javascript_include_tag "application" %>

@@ -1,0 +1,25 @@
+<%= render "agents/notification" %>
+
+<%= form_tag agents_mapping_url, remote: true, id: "agents_mapping_form", :method => :get do |f| %>
+  <div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-4">
+      <h2>Agents</h2>
+      <select name="agents[]" id="agents_filter" class="select2" remote="true" multiple >
+        <% Agent.all.each do |agent| %>
+          <option value="<%= agent.id %>"><%= agent.name.titlecase %></option>
+        <% end %>
+      </select>
+      <br/>
+      <br/>
+      <%= submit_tag "Submit", :class => "btn btn-primary" %>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4">
+      <h2>Offices</h2>
+      <%= render "agents/offices", offices: Org.get_all_offices %>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4">
+      <h2>Teams</h2>
+      <%= render "agents/teams", teams: Org.get_all_teams %>
+    </div>
+  </div>
+<% end %>

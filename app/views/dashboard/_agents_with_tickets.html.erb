@@ -1,0 +1,63 @@
+<div id="agents-block">
+  <table id="agents-tickets" class="table table-bordered table-striped table-condensed table-hover datatable">
+    <thead>
+    <tr>
+      <th>Agent Name</th>
+      <th>Load</th>
+      <th>Total Tickets</th>
+      <th>Urgent</th>
+      <th>High</th>
+      <th>Normal</th>
+      <th>Low</th>
+      <th>New</th>
+      <th>Open</th>
+      <th>Pending</th>
+      <th>On-Hold</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for agent in agents %>
+        <tr>
+          <td><%= link_to agent.name, "https://appdynamics1456207676.zendesk.com/agent/users/#{agent.id}", target: "_blank" %></td>
+          <td class="weight"><%= agent.tickets_weight%></td>
+          <td>
+            <%= link_to agent.assignments.where(status: Ticket::STATUS_NEED_ATTENTION).count, tickets_path(:agent_id => agent.id, :status => "all", :priority => "all"), remote: true %>
+          </td>
+          <td>
+            <%= link_to agent.assignments.where(status: Ticket::STATUS_NEED_ATTENTION, priority: Ticket::PRIORITY_URGENT).count, tickets_path(:agent_id => agent.id, :status => "all", :priority => Ticket::PRIORITY_URGENT), remote: true %>
+          </td>
+          <td>
+            <%= link_to agent.high_tickets(Ticket::STATUS_NEED_ATTENTION).count, tickets_path(:agent_id => agent.id, :status => "all", :priority => Ticket::PRIORITY_HIGH), remote: true %>
+          </td>
+          <td><%= link_to agent.normal_tickets(Ticket::STATUS_NEED_ATTENTION).count, tickets_path(:agent_id => agent.id, :status => "all", :priority => Ticket::PRIORITY_NORMAL), remote: true %></td>
+          <td><%= link_to agent.low_tickets(Ticket::STATUS_NEED_ATTENTION).count, tickets_path(:agent_id => agent.id, :status => "all", :priority => Ticket::PRIORITY_LOW), remote: true %></td>
+          <td><%= link_to agent.new_tickets.count, tickets_path(:agent_id => agent.id, :status => Ticket::STATUS_NEW, :priority => "all"), remote: true %></td>
+          <td><%= link_to agent.open_tickets.count, tickets_path(:agent_id => agent.id, :status => Ticket::STATUS_OPEN, :priority => "all"), remote: true %></td>
+          <td><%= link_to agent.pending_tickets.count, tickets_path(:agent_id => agent.id, :status => Ticket::STATUS_PENDING, :priority => "all"), remote: true %></td>
+          <td><%= link_to agent.on_hold_tickets.count, tickets_path(:agent_id => agent.id, :status => Ticket::STATUS_ON_HOLD, :priority => "all"), remote: true %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $("td.weight").hottie({
+      colorArray : [ 
+        "33bb33",
+        "#3333bb",
+        "#bb3333"
+      ]
+    });
+  
+  $('#agents-tickets').dataTable({
+    "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'C>r>"+
+    "t"+
+    "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>T>",
+    "autoWidth" : true,
+    "sSwfPath" : "/assets/swf/copy_csv_xls_pdf.swf",
+    "order": [[ 1, "asc" ]]
+  });
+
+  
+</script>

@@ -1,0 +1,78 @@
+/*flash*/
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-alert {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+.alert-notice {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+.dataTables_filter .input-group-addon{
+    height: 34px !important;
+}
+
+fieldset {
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.select2-hidden-accessible{
+    visibility: hidden;
+}
+
+#search_form label{
+    font-weight: bold;
+}
+
+.well{
+    margin-bottom: 5px !important;
+}
+
+.field_with_errors{
+  display: block;
+  clear: both;
+}
+
+.field_with_errors label{
+  color: #cc0000;
+  font-weight: bold !important;
+}
+
+.field_with_errors input{
+  border: 2px solid #cc0000;
+  font-weight: bold !important;
+}
+
+.actions{
+  padding-top: 15px;
+}
+
+.modal-dialog {
+  margin: 30px 30px !important;
+  width: auto !important;
+}
+
+td.weight{
+  color: #ffffff;
+  font-weight: bold;
+}

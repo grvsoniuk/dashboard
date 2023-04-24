@@ -1,0 +1,47 @@
+<div id="tickets-block">
+  <table id="tickets-agents" class="table table-bordered table-striped table-condensed table-hover datatable">
+    <thead>
+    <tr>
+      <th>Ticket #</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Summary</th>
+      <th>Requester</th>
+      <th>Agent</th>
+      <th>Organization</th>
+      <th>Created At</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for ticket in tickets %>
+        <tr>
+          <td><%= link_to ticket.id, ZendeskClient.zd_url(ticket), target: "_blank" %></td>
+          <td><%= ticket.priority.titlecase if ticket.priority.present? %></td>
+          <td><%= ticket.status.titlecase %></td>
+          <td><%= ticket.subject %></td>
+          <td>
+            <%= ticket.requester.present? ? (link_to(ticket.requester.name, ZendeskClient.zd_url(ticket.requester), target: "_blank")) : ticket.requester_id %>
+          </td>
+          <td>
+            <%= ticket.assignee.present? ? (link_to(ticket.assignee.name, ZendeskClient.zd_url(ticket.assignee), target: "_blank")) : ticket.assignee_id %>
+          </td>
+          <td>
+            <%= link_to ticket.organization.try(:name), ZendeskClient.zd_url(ticket.organization), target: "_blank" if ticket.organization.present? %>
+          </td>
+          <td><%= ticket.created_at %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  
+  <script>
+    $('#tickets-agents').dataTable({
+      "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'C>r>"+
+      "t"+
+      "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>T>",
+      "autoWidth" : true,
+      "sSwfPath" : "/assets/swf/copy_csv_xls_pdf.swf",
+      "order": [[ 1, "desc" ]]
+    });
+  </script>
+</div>

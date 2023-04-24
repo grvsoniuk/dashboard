@@ -1,0 +1,34 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "smart-form client-form"}, builder: LabeledFormBuilder) do |f| %>
+  
+  <header>
+    Sign In
+  </header>
+  <fieldset>
+    <section>
+      <%= f.email_field :email, autofocus: true, class: "input", "icon-class" => "icon-append fa fa-user", message: " Please enter email address/username" %>
+    </section>
+
+    <section>
+      <%= f.password_field :password, autocomplete: "off", class: "input", "icon-class" => "icon-append fa fa-lock", message: " Please enter password" %>
+    </section>
+
+    <% if devise_mapping.rememberable? -%>
+      <section>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </section>
+    <% end -%>  
+  </fieldset> 
+
+
+  <footer>
+    <div class="pull-left">
+    <%= render "devise/shared/links" %>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      Sign in
+    </button>
+  </footer>
+<% end %>
+
+

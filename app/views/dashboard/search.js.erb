@@ -1,0 +1,14 @@
+<% agents = Agent.agents_by_offices_and_teams(@offices, @teams, @priorities, @statuses) %>
+<% tickets = Ticket.tickets_by_offices_and_teams(@offices, @teams, @priorities, @statuses) %>
+
+//$('#saved_search_select').replaceWith("<%= j (render partial: "dashboard/agents_and_tickets", locals: { agents: agents, tickets: tickets }) %>")
+
+$('#agents-and-tickets').replaceWith("<%= j (render partial: "dashboard/agents_and_tickets", locals: { agents: agents, tickets: tickets }) %>");
+
+$('#offices').replaceWith("<%= j (render partial: "dashboard/offices", locals: { offices: @offices, teams: @teams, priorities: @priorities, statuses: @statuses }) %>");
+
+$('#teams').replaceWith("<%= j (render partial: "dashboard/teams", locals: { offices: @offices, teams: @teams, priorities: @priorities, statuses: @statuses }) %>");
+
+<% if current_user.refresh_interval > 0 %>
+  setTimeout(function(){$("#search_form").submit();}, <%= current_user.refresh_interval %>000);
+<% end %>

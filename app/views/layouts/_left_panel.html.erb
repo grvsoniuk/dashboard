@@ -1,0 +1,28 @@
+<!-- Left panel : Navigation area -->
+<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+<aside id="left-panel">
+
+  <!-- User info -->
+  <div class="login-info">
+        <span> <!-- User image size is adjusted inside CSS, it should stay as it -->
+
+          <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+            <% user_agent = Agent.find_by_email(current_user.email) %>
+            <%= (user_agent.present? && user_agent.photo.present?) ? image_tag((eval user_agent.photo)["content_url"], size: "50x50") : image_tag("avatars/male.png") %>
+            <span>
+              <%=  current_user.email.split('@').first.split(".").join(" ") if user_signed_in? %>
+            </span>
+            <i class="fa fa-angle-down"></i>
+          </a>
+
+        </span>
+  </div>
+  <!-- end user info -->
+
+  <%= render "layouts/left_nav" %>
+  <span class="minifyme" data-action="minifyMenu">
+    <i class="fa fa-arrow-circle-left hit"></i>
+  </span>
+
+</aside>
+<!-- END NAVIGATION -->

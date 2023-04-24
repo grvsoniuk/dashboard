@@ -1,0 +1,21 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "smart-form client-form"}, builder: LabeledFormBuilder) do |f| %>
+  <header>
+    Forgot your password?
+  </header>
+  
+  <fieldset>
+  	<%= devise_error_messages! %>	
+    <section>
+      <%= f.email_field :email, autofocus: true, class: "input", "icon-class" => "icon-append fa fa-user", message: " Please enter email address/username" %>
+    </section>
+  </fieldset>
+  
+  <footer>
+    <div class="pull-left">
+    <%= render "devise/shared/links" %>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      Send me reset instructions
+    </button>
+  </footer>
+<% end %>

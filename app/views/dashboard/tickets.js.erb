@@ -1,0 +1,3 @@
+$('div#tickets').html("<%= j (render 'dashboard/tickets', tickets: @tickets) %>");
+$('#tickets_count').html("<%= @tickets.count %>");
+$('#tickets_tab').click();

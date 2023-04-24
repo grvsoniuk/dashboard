@@ -1,0 +1,25 @@
+<div class="well well-sm well-light">
+  <article style="font-weight: bold;">
+    <% if object_type == "offices" %>
+      <%= link_to object.name, agents_from_region_path(office: object), remote: true, update: "agents_from" %>
+    <% elsif object_type == "teams" %>
+      <%= link_to object.name, agents_from_team_path(team: object), remote: true, update: "agents_from" %>
+    <% end %>
+    <span class="badge bg-color-blueDark"><%= tickets.count %></span>
+  </article>
+  <article>
+    <div class="pull-left" style="width: 50%;">
+      <span class="badge bg-color-red"><%= tickets.where(status: Ticket::STATUS_NEW).count %></span> New<br/>
+      <span class="badge bg-color-orange"><%= tickets.where(status: Ticket::STATUS_OPEN).count %></span> Open<br/>
+      <span class="badge bg-color-greenLight"><%= tickets.where(status: Ticket::STATUS_PENDING).count %></span> Pending<br/>
+      <span class="badge bg-color-blue"><%= tickets.where(status: Ticket::STATUS_ON_HOLD).count %></span> On-Hold
+    </div>
+    <div class="pull-right" style="width: 50%;">
+      <span class="badge bg-color-red"><%= tickets.where(priority: Ticket::PRIORITY_URGENT).count %></span> Urgent<br/>
+      <span class="badge bg-color-orange"><%= tickets.where(priority: Ticket::PRIORITY_HIGH).count %></span> High<br/>
+      <span class="badge bg-color-greenLight"><%= tickets.where(priority: Ticket::PRIORITY_NORMAL).count %></span> Normal<br/>
+      <span class="badge bg-color-blue"><%= tickets.where(priority: Ticket::PRIORITY_LOW).count %></span> Low
+    </div>
+    <div style="clear: both;"></div>
+  </article>
+</div>

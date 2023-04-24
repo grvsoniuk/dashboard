@@ -1,0 +1,30 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "smart-form client-form"}, builder: LabeledFormBuilder) do |f| %>
+
+  <header>
+    Sign Up
+  </header>
+  
+  <fieldset>
+  <%= devise_error_messages! %>
+    <section>
+      <%= f.email_field :email, autofocus: true, class: "input", "icon-class" => "icon-append fa fa-user", message: " Please enter email address/username" %>
+    </section>
+
+    <section>
+      <%= f.password_field :password, autocomplete: "off", class: "input", "icon-class" => "icon-append fa fa-lock", message: " Please enter password(6 characters minimum)" %>
+    </section>
+
+    <section>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "input", "icon-class" => "icon-append fa fa-lock", message: " Please confirm password(6 characters minimum)" %>
+    </section>
+  </fieldset>
+
+  <footer>
+    <div class="pull-left">
+    <%= render "devise/shared/links" %>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      Sign up
+    </button>
+  </footer>
+<% end %>

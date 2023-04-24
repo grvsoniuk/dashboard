@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <%= render "layouts/head" %>
+  </head>
+  <body class="">
+    <!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
+
+    <%= render "layouts/main/header" %>
+
+    <%= render "layouts/left_panel" %>
+
+    <!-- MAIN PANEL -->
+    <div id="main" role="main">
+      <%= gflash %>
+      <%= render "layouts/breadcrumb" %>
+
+      <!-- MAIN CONTENT -->
+      <div id="content">
+
+        <section id="widget-grid" class="">
+
+          <%= yield %>
+
+        </section>
+        <!-- end widget grid -->
+      </div>
+      <!-- END MAIN CONTENT -->
+
+    </div>
+    <!-- END MAIN PANEL -->
+
+    <%= render "layouts/footer" %>
+  </body>
+
+</html>

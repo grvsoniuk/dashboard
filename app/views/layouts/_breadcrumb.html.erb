@@ -1,0 +1,20 @@
+<!-- RIBBON -->
+<div id="ribbon">
+
+  <!-- breadcrumb -->
+  <ol class="breadcrumb">
+    <li><%= params[:controller].titlecase %></li><li><%= params[:action].titlecase %></li>
+  </ol>
+  <!-- end breadcrumb -->
+  <% if params[:controller] == "dashboard" && params[:action] == "index" %>
+    <%= form_tag user_update_refresh_interval_url(current_user), id: "refresh_interval_form", method: :post, remote: true, :class => "pull-right", :style => "margin: 3px 0px 0px 3px;" do -%>
+      <%= select_tag "refresh_interval", options_from_collection_for_select(User::REFRESH_INTERVALS, :first, :last, current_user.refresh_interval), :class => "form-control", :onchange => "$('#refresh_interval_form').submit();" %>
+    <% end %>
+    <span>
+      <a href="javascript:void(0);" class="btn btn-primary pull-right" onclick="$('#search_form').submit();" style="margin-top: 3px;">
+        <i class="glyphicon glyphicon-refresh"></i>
+      </a>
+    </span>
+  <% end %>
+</div>
+<!-- END RIBBON -->

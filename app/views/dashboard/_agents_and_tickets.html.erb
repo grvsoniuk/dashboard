@@ -1,0 +1,101 @@
+<div id="agents-and-tickets">
+  <div class="table-responsive well">
+    <ul id="myTab1" class="nav nav-tabs bordered">
+      <li class="active">
+        <a href="#agents" data-toggle="tab" id="agents_tab"><i class="fa fa-fw fa-lg fa-user"></i> Agents <span class="badge bg-color-blue txt-color-white"><%= agents.count %></span></a>
+      </li>
+      <li>
+        <a href="#tickets" data-toggle="tab" id="tickets_tab"><i class="fa fa-fw fa-lg fa-table"></i> Tickets <span class="badge bg-color-blue txt-color-white" id="tickets_count"><%= tickets.count %></span></a>
+      </li>
+      <li>
+        <a href="#reports" data-toggle="tab" id="reports_tab"><i class="fa fa-fw fa-lg fa-bar-chart-o"></i> Reports</a>
+      </li>
+    </ul>
+    <div id="myTabContent1" class="tab-content padding-10">
+      <div class="tab-pane fade in active" id="agents">
+        <%= render "dashboard/agents_with_tickets", agents: agents %>
+      </div>
+      <div class="tab-pane fade" id="tickets">
+        
+      </div>
+      <div class="tab-pane fade" id="reports">
+        <div class="tabs-left">
+          <ul class="nav nav-tabs tabs-left" id="demo-pill-nav">
+            <li class="">
+              <a href="#tab-result" data-toggle="tab" aria-expanded="false" onclick="report('last_7_days');">Last 7 Days</a>
+            </li>
+            <li class="">
+              <a href="#tab-result" data-toggle="tab" aria-expanded="false" onclick="report('last_30_days');">Last 30 Days</a>
+            </li>
+            <li class="">
+              <a href="#tab-range" data-toggle="tab" aria-expanded="false">Date Range</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab-result">
+              Choose a report.
+            </div>
+            <div class="tab-pane" id="tab-range">
+              Start Date: 
+              <input type="text" name="startDate" id="startDate"/> 
+              End Date: 
+              <input type="text" name="endDate" id="endDate"/>
+              <button class="btn btn-primary btn-xs" onclick="report_range();">Filter</button>
+              <div id="range-result">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  function report(type){
+    reset();
+    $("#tab-result").html("<span><img src='/assets/loading.gif'/> Fetching...</span>");
+    $("#tab-result").load( "/reports/"+type, { 
+      method: "post",
+      agents: <%= agents.map{|a| a.id} %> 
+    });
+  };
+
+  function report_range(){
+    reset();
+    $("#range-result").html("<span><img src='/assets/loading.gif'/> Fetching...</span>");
+    $("#range-result").load( "/reports/range", { 
+      method: "post",
+      agents: <%= agents.map{|a| a.id} %>,
+      startDate: $("#startDate").val(),
+      endDate: $("#endDate").val()
+    });
+  };
+
+  function reset(){
+    $("#tab-result").empty();
+    $("#range-result").empty();
+  }
+
+  $("#startDate").datepicker({
+      onSelect: function (selectedDate) {
+          var orginalDate = new Date(selectedDate);
+          var monthsAddedDate = new Date(new Date(orginalDate).setMonth(orginalDate.getMonth() + 3));
+          $("#endDate").datepicker("option", 'minDate', selectedDate);
+          $("#endDate").datepicker("option", 'maxDate', monthsAddedDate);
+      }
+  });
+
+  $("#endDate").datepicker({
+      onSelect: function (selectedDate) {
+          var orginalDate = new Date(selectedDate);
+          var monthsAddedDate = new Date(new Date(orginalDate).setMonth(orginalDate.getMonth() - 3));
+          $("#startDate").datepicker("option", 'minDate', monthsAddedDate);
+          $("#startDate").datepicker("option", 'maxDate', selectedDate);
+      }
+  })
+
+  $("#startDate" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+  $("#endDate" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+</script>

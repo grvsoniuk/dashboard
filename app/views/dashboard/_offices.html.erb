@@ -1,0 +1,8 @@
+<div id="offices">
+  <% offices = Org.get_all_offices if offices.blank? %>
+  <% teams = Org.get_all_teams if teams.blank? %>
+
+  <% offices.each do |office| %>
+      <%= render "dashboard/priority_wise_ticket_distribution_simple", tickets: Ticket.tickets_by_offices_and_teams([]<<office, teams, priorities, statuses), object: office, object_type: "offices" %>
+  <% end %>
+</div>

@@ -1,0 +1,5 @@
+<% Office.all.each do |office| %>
+	<div class="well well-sm well-light">
+	  <input type="radio" name="office" value="<%= office.id %>"/> <%= office.name.titlecase %>
+	</div>
+<% end %>

@@ -1,0 +1,98 @@
+<div class="row">
+  <div class="col-sm-2">
+    <label>Saved Search:</label>
+    <button type="button" onclick="make_default_search();" class="btn btn-primary btn-xs pull-right" style="margin-left: 2px;">Make as Default</button>
+    <a href="javascript:void(0);" class="btn btn-primary btn-xs pull-right" title="Save Search" onclick="saved_searches();"><i class="fa fa-plus"></i></a>
+    <div class="clearfix"></div>
+    <div id="saved_searches">
+      <%= select_tag(:saved_search_select, options_for_select(current_user.saved_searches.map{|saved_search|[saved_search.name, saved_search.id]}, params["id"].present? ? params["id"] : current_user.default_saved_search.id), :onchange => "call_saved_search()", :class => "form-control") %>
+
+      <div id="saved_searches_form" style="display: none;">
+        <input type="text" id="saved_search_name" name="saved_search[name]" value="" class="form-control"/>
+        <input type="text" id="saved_search_user_id" name="saved_search[user_id]" value="<%= current_user.id %>" class="hidden" />
+        <button type="button" onclick="submit_saved_searches();" class="btn btn-primary pull-right">Save</button>
+        <button type="button" onclick="cancel_saved_searches();" class="btn pull-left">Cancel</button>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <label>Select Offices:</label>
+    <a href="javascript:void(0);" class="btn btn-primary btn-xs pull-right" onclick="reset_filter($('#offices_filter'));" title="Reset Office Filter"><i class="fa fa-refresh"></i></a>
+    <select name="saved_search[query][offices][]" id="offices_filter" multiple class="select2">
+      <% Org.get_all_offices.each do |office| %>
+        <option value="<%= office.id %>" <%= "selected" if @offices.present? && @offices.include?(office) %>><%= office.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <div class="col-sm-3">
+    <label>Select Team:</label>
+    <a href="javascript:void(0);" class="btn btn-primary btn-xs pull-right" onclick="reset_filter($('#teams_filter'));" title="Reset Office Filter"><i class="fa fa-refresh"></i></a>
+    <select name="saved_search[query][teams][]" id="teams_filter" multiple class="select2">
+      <% Org.get_all_teams.each do |team| %>
+        <option value="<%= team.id %>" <%= "selected" if @teams.present? && @teams.include?(team) %>><%= team.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <div class="col-sm-2">
+    <label>Select Priorities:</label>
+    <a href="javascript:void(0);" class="btn btn-primary btn-xs pull-right" onclick="reset_filter($('#priorities_filter'));" title="Reset Office Filter"><i class="fa fa-refresh"></i></a>
+    <select name="saved_search[query][priorities][]" id="priorities_filter" multiple class="select2">
+      <% Ticket::PRIORITIES.each do |priority| %>
+        <option value="<%= priority %>" <%= "selected" if @priorities.present? and @priorities.include?(priority) %>><%= priority.titlecase %></option>
+      <% end %>
+    </select>
+  </div>
+  <div class="col-sm-2">
+    <label>Select Statuses:</label>
+    <a href="javascript:void(0);" class="btn btn-primary btn-xs pull-right" onclick="reset_filter($('#statuses_filter'));" title="Reset Office Filter"><i class="fa fa-refresh"></i></a>
+    <select name="saved_search[query][statuses][]" id="statuses_filter" multiple class="select2">
+      <% Ticket::STATUS_NEED_ATTENTION.each do |status| %>
+        <option value="<%= status %>" <%= "selected" if @statuses.present? && @statuses.include?(status) %> ><%= status.titlecase %></option>
+      <% end %>
+    </select>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(".select2").change(function () {
+    $("#search_form").submit();
+  });
+
+  function reset_filters(){
+    $(".select2").select2("val", ""); 
+    $("#search_form").submit();
+  }
+
+  function reset_filter(obj){
+    $(obj).select2("val", "");
+    $("#search_form").submit();
+  }
+
+  function saved_searches() {
+    $("#saved_search_select").toggle();
+    $("#saved_searches_form").toggle();
+  }
+
+  function submit_saved_searches(){
+    $("#search_form").attr("action", "/save_search").submit();
+    reset_saved_search();
+  }
+
+  function cancel_saved_searches() {
+    reset_saved_search();
+  }
+
+  function reset_saved_search(){
+    $("#saved_search_name").val("");
+    saved_searches();
+  }
+
+  function call_saved_search(){
+    window.location.href = "/dashboard/"+$("#saved_search_select").val();
+  }
+
+  function make_default_search(){
+    $.post("/make_default_search/"+$("#saved_search_select").val());
+  }
+</script>

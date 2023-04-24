@@ -1,0 +1,138 @@
+# Logfile created on 2020-03-03 00:16:58 +0000 by logger.rb/53141
+2020-03-03T00:17:00.687Z 59347 TID-ouovwchbf INFO: Running in ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin17]
+2020-03-03T00:17:00.687Z 59347 TID-ouovwchbf INFO: See LICENSE and the LGPL-3.0 for licensing details.
+2020-03-03T00:17:00.687Z 59347 TID-ouovwchbf INFO: Upgrade to Sidekiq Pro for more features and support: http://sidekiq.org
+2020-03-03T00:17:00.687Z 59347 TID-ouovwchbf INFO: Booting Sidekiq 5.2.8 with redis options {:id=>"Sidekiq-server-PID-59347", :url=>nil}
+2020-03-03T00:17:00.690Z 59347 TID-ouovwchbf INFO: Starting processing, hit Ctrl-C to stop
+2020-03-03T00:17:05.822Z 59347 TID-ouovwchbf INFO: Shutting down
+2020-03-03T00:17:05.823Z 59347 TID-ouovwchbf INFO: Terminating quiet workers
+2020-03-03T00:17:05.823Z 59347 TID-ouows2gr3 INFO: Scheduler exiting...
+2020-03-03T00:17:05.926Z 59347 TID-ouovwchbf INFO: Pausing to allow workers to finish...
+2020-03-03T00:17:07.067Z 59347 TID-ouovwchbf INFO: Bye!
+2020-03-03T00:17:13.689Z 59379 TID-oxq7xuk4z INFO: Running in ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin17]
+2020-03-03T00:17:13.689Z 59379 TID-oxq7xuk4z INFO: See LICENSE and the LGPL-3.0 for licensing details.
+2020-03-03T00:17:13.689Z 59379 TID-oxq7xuk4z INFO: Upgrade to Sidekiq Pro for more features and support: http://sidekiq.org
+2020-03-03T00:17:13.690Z 59379 TID-oxq7xuk4z INFO: Booting Sidekiq 5.2.8 with redis options {:id=>"Sidekiq-server-PID-59379", :url=>nil}
+2020-03-03T00:17:13.692Z 59379 TID-oxq7xuk4z INFO: Starting processing, hit Ctrl-C to stop
+2020-03-03T00:19:19.495Z 59379 TID-oxq82ehkr AgentWorker JID-87d123cdd3208719a66cbbcd INFO: start
+2020-03-03T00:19:20.293Z 59379 TID-oxq82ehkr AgentWorker JID-87d123cdd3208719a66cbbcd INFO: done: 0.797 sec
+2020-03-03T00:20:26.185Z 59379 TID-oxq82ehkr AgentWorker JID-13bfc7d484811bcab7b0a2f0 INFO: start
+2020-03-03T00:20:40.756Z 59379 TID-oxq82ehkr AgentWorker JID-13bfc7d484811bcab7b0a2f0 INFO: done: 14.572 sec
+2020-03-03T00:21:28.701Z 59379 TID-oxq82ek0j OrganisationWorker JID-1bb89f50b9c48c01f1663973 INFO: start
+2020-03-03T00:21:31.277Z 59379 TID-oxq82ek0j OrganisationWorker JID-1bb89f50b9c48c01f1663973 INFO: fail: 2.576 sec
+2020-03-03T00:21:31.277Z 59379 TID-oxq82ek0j WARN: {"context":"Job raised exception","job":{"class":"OrganisationWorker","args":[],"retry":false,"queue":"default","jid":"1bb89f50b9c48c01f1663973","created_at":1583194888.7008908,"enqueued_at":1583194888.7009542},"jobstr":"{\"class\":\"OrganisationWorker\",\"args\":[],\"retry\":false,\"queue\":\"default\",\"jid\":\"1bb89f50b9c48c01f1663973\",\"created_at\":1583194888.7008908,\"enqueued_at\":1583194888.7009542}"}
+2020-03-03T00:21:31.277Z 59379 TID-oxq82ek0j WARN: ActiveRecord::StatementInvalid: Mysql2::Error: Out of range value for column 'group_id' at row 1: INSERT INTO `organizations` (`id`, `url`, `name`, `domain_names`, `details`, `notes`, `group_id`, `shared_tickets`, `shared_comments`, `tags`, `organization_fields`, `created_at`, `updated_at`) VALUES (360139015772, 'https://appdynamics1539022638.zendesk.com/api/v2/organizations/360139015772.json', 'Appdynamics, Inc.', '[]', '', '', 360002682832, 0, 0, '[\"blue\", \"americas\", \"_north_west_bay_area\", \"norcal_sl\", \"var\", \"standard_account\", \"west\", \"_norcal\"]', '{\"account_category\"=>\"Category 1\", \"account_geo\"=>\"americas\", \"account_id\"=>\"0018000001161STAAY\", \"account_owner\"=>\"Jonathan Quach\", \"account_phone\"=>\"+1.415.442.8400\", \"account_region\"=>\"west\", \"account_sub_region\"=>\"_norcal\", \"account_target_level\"=>\"standard_account\", \"account_type\"=>\"var\", \"adoption_score\"=>nil, \"arr\"=>nil, \"assigned_cse\"=>nil, \"assigned_csm\"=>nil, \"assigned_csr\"=>nil, \"country_tier\"=>\"Target\", \"cs_customer_champion\"=>nil, \"customer_status\"=>nil, \"customer_support_type\"=>nil, \"deployment_type\"=>\"hybrid\", \"executive_sponsor\"=>nil, \"global_sales_segment\"=>\"Tier 1 - Expandables\", \"golden_path_tier\"=>\"A\", \"industry_tier\"=>\"High\", \"last_date_of_customer_response\"=>nil, \"last_end_date\"=>nil, \"overall_customer_satisfaction\"=>nil, \"overall_health_cs\"=>nil, \"parent_account_id\"=>\"0018000001DpreZAAR\", \"parent_account_name\"=>\"Cisco Systems Inc\", \"premium_support\"=>false, \"primary_cs_customer_contact\"=>nil, \"project_management_specialists\"=>nil, \"sla\"=>nil, \"sla_first_response_time\"=>nil, \"sla_interim_solution\"=>nil}', '2018-10-09 16:04:59', '2018-10-09 16:04:59')
+2020-03-03T00:21:31.277Z 59379 TID-oxq82ek0j WARN: /Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/mysql2-0.4.10/lib/mysql2/client.rb:120:in `_query'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/mysql2-0.4.10/lib/mysql2/client.rb:120:in `block in query'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/mysql2-0.4.10/lib/mysql2/client.rb:119:in `handle_interrupt'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/mysql2-0.4.10/lib/mysql2/client.rb:119:in `query'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/abstract_mysql_adapter.rb:218:in `block in execute'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/abstract_adapter.rb:590:in `block in log'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/abstract_adapter.rb:583:in `log'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/abstract_mysql_adapter.rb:218:in `execute'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/mysql/database_statements.rb:31:in `execute'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/abstract_mysql_adapter.rb:225:in `execute_and_free'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/mysql/database_statements.rb:36:in `exec_query'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/abstract/database_statements.rb:92:in `exec_insert'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/abstract/database_statements.rb:124:in `insert'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/abstract/query_cache.rb:17:in `insert'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/relation.rb:65:in `insert'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/persistence.rb:572:in `_create_record'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/counter_cache.rb:128:in `_create_record'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/locking/optimistic.rb:75:in `_create_record'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/attribute_methods/dirty.rb:123:in `_create_record'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/callbacks.rb:302:in `block in _create_record'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/callbacks.rb:126:in `call'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/callbacks.rb:455:in `call'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/callbacks.rb:750:in `_run_create_callbacks'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/callbacks.rb:302:in `_create_record'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/timestamp.rb:68:in `_create_record'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/persistence.rb:548:in `create_or_update'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/callbacks.rb:298:in `block in create_or_update'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/callbacks.rb:126:in `call'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/callbacks.rb:455:in `call'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/callbacks.rb:750:in `_run_save_callbacks'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/callbacks.rb:298:in `create_or_update'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/persistence.rb:129:in `save'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/validations.rb:44:in `save'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/attribute_methods/dirty.rb:22:in `save'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/transactions.rb:319:in `block (2 levels) in save'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/transactions.rb:395:in `block in with_transaction_returning_status'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/abstract/database_statements.rb:230:in `transaction'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/transactions.rb:211:in `transaction'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/transactions.rb:392:in `with_transaction_returning_status'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/transactions.rb:319:in `block in save'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/transactions.rb:334:in `rollback_active_record_state!'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/transactions.rb:318:in `save'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/suppressor.rb:41:in `save'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/persistence.rb:275:in `block in update'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/transactions.rb:395:in `block in with_transaction_returning_status'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/abstract/database_statements.rb:232:in `block in transaction'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/abstract/transaction.rb:189:in `within_new_transaction'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/connection_adapters/abstract/database_statements.rb:232:in `transaction'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/transactions.rb:211:in `transaction'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/transactions.rb:392:in `with_transaction_returning_status'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activerecord-5.0.7.2/lib/active_record/persistence.rb:273:in `update'
+/Users/gaurav.soni/development/appdynamics/ruby/dashboard/app/workers/organisation_worker.rb:9:in `block in perform'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/zendesk_api-1.24.0/lib/zendesk_api/collection.rb:349:in `block in _all'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/zendesk_api-1.24.0/lib/zendesk_api/collection.rb:457:in `each'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/zendesk_api-1.24.0/lib/zendesk_api/collection.rb:457:in `public_send'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/zendesk_api-1.24.0/lib/zendesk_api/collection.rb:457:in `array_method'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/zendesk_api-1.24.0/lib/zendesk_api/collection.rb:298:in `method_missing'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/zendesk_api-1.24.0/lib/zendesk_api/collection.rb:342:in `_all'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/zendesk_api-1.24.0/lib/zendesk_api/collection.rb:216:in `all!'
+/Users/gaurav.soni/development/appdynamics/ruby/dashboard/app/workers/organisation_worker.rb:7:in `perform'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:192:in `execute_job'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:165:in `block (2 levels) in process'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/middleware/chain.rb:128:in `block in invoke'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/middleware/chain.rb:133:in `invoke'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:164:in `block in process'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:137:in `block (6 levels) in dispatch'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/job_retry.rb:109:in `local'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:136:in `block (5 levels) in dispatch'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/rails.rb:43:in `block in call'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/execution_wrapper.rb:85:in `wrap'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/reloader.rb:68:in `block in wrap'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/execution_wrapper.rb:85:in `wrap'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/activesupport-5.0.7.2/lib/active_support/reloader.rb:67:in `wrap'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/rails.rb:42:in `call'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:132:in `block (4 levels) in dispatch'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:250:in `stats'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:127:in `block (3 levels) in dispatch'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/job_logger.rb:8:in `call'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:126:in `block (2 levels) in dispatch'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/job_retry.rb:74:in `global'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:125:in `block in dispatch'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/logging.rb:48:in `with_context'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/logging.rb:42:in `with_job_hash_context'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:124:in `dispatch'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:163:in `process'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:83:in `process_one'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/processor.rb:71:in `run'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/util.rb:16:in `watchdog'
+/Users/gaurav.soni/.rvm/gems/ruby-2.3.0@appd/gems/sidekiq-5.2.8/lib/sidekiq/util.rb:25:in `block in safe_thread'
+2020-03-03T00:22:28.816Z 59379 TID-oxq82eh83 TicketAllWorker JID-98b390e60a2589dc80db5c5b INFO: start
+2020-03-03T00:22:37.939Z 59379 TID-oxq82eh83 TicketAllWorker JID-98b390e60a2589dc80db5c5b INFO: done: 9.123 sec
+2020-03-03T00:23:58.370Z 59379 TID-oxq91q4vr TicketWorker JID-3f164d7fcd80fe267cf26c41 INFO: start
+2020-03-03T00:24:01.195Z 59379 TID-oxq91q4vr TicketWorker JID-3f164d7fcd80fe267cf26c41 INFO: done: 2.825 sec
+2020-03-03T00:43:46.346Z 59379 TID-oxq91q4vr AgentWorker JID-fe8097611ee0b9c75d0df3e2 INFO: start
+2020-03-03T00:43:47.047Z 59379 TID-oxq91q4vr AgentWorker JID-fe8097611ee0b9c75d0df3e2 INFO: done: 0.701 sec
+2020-03-03T00:44:20.548Z 59379 TID-oxq91q4vr AgentWorker JID-f22ed8bb1cb74892fd4cf247 INFO: start
+2020-03-03T00:44:36.467Z 59379 TID-oxq91q4vr AgentWorker JID-f22ed8bb1cb74892fd4cf247 INFO: done: 15.919 sec
+2020-03-03T00:46:59.160Z 59379 TID-oxq82ehef AgentWorker JID-51a19e6053614af677094920 INFO: start
+2020-03-03T00:47:22.328Z 59379 TID-oxq82ehef AgentWorker JID-51a19e6053614af677094920 INFO: done: 23.168 sec
+2020-03-03T00:53:03.530Z 59379 TID-oxq82ehef TicketWorker JID-d1a64a7b1d0b4e0eed14bdf2 INFO: start
+2020-03-03T00:53:07.000Z 59379 TID-oxq82ehef TicketWorker JID-d1a64a7b1d0b4e0eed14bdf2 INFO: done: 3.469 sec
+2020-03-03T01:03:13.673Z 59379 TID-oxq91q4vr TicketWorker JID-33299f745a2c7343b974622e INFO: start
+2020-03-03T01:03:17.207Z 59379 TID-oxq91q4vr TicketWorker JID-33299f745a2c7343b974622e INFO: done: 3.534 sec
+2020-03-03T01:03:22.268Z 59379 TID-oxq82eh83 AgentWorker JID-feefb433fb5f94888b874bd2 INFO: start
+2020-03-03T01:03:36.763Z 59379 TID-oxq82eh83 AgentWorker JID-feefb433fb5f94888b874bd2 INFO: done: 14.495 sec
+2020-03-03T01:06:47.641Z 59379 TID-oxq82ek8f AgentWorker JID-ec1b289d76cf8a2260c29e58 INFO: start
+2020-03-03T01:07:09.503Z 59379 TID-oxq82ek8f AgentWorker JID-ec1b289d76cf8a2260c29e58 INFO: done: 21.862 sec
+2020-03-03T01:09:18.886Z 59379 TID-oxq82eh83 AgentWorker JID-b0b94d74dd7d70481a40fb35 INFO: start
+2020-03-03T01:09:38.896Z 59379 TID-oxq82eh83 AgentWorker JID-b0b94d74dd7d70481a40fb35 INFO: done: 20.01 sec

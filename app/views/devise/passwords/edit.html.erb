@@ -1,0 +1,25 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "smart-form client-form" }, builder: LabeledFormBuilder) do |f| %>
+  <header>
+    Change your password
+  </header>
+  <fieldset>
+    <%= devise_error_messages! %>
+    <section>
+      <%= f.hidden_field :reset_password_token %>
+    </section>
+    <section>
+      <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "input", "icon-class" => "icon-append fa fa-unlock-alt", message: " Please enter new password" %>
+    </section>
+    <section>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "input", "icon-class" => "icon-append fa fa-unlock-alt", message: " Please confirm password" %>
+    </section>
+  </fieldset>
+  <footer>
+    <div class="pull-left">
+      <%= render "devise/shared/links" %>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      Change my password
+    </button>
+  </footer>
+<% end %>

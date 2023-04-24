@@ -1,0 +1,13 @@
+<header id="header" style="background-color:black;background-image:none;">
+
+  <div id="logo-group">
+        <span id="logo">
+          <%= image_tag('support.png', :style=>"width:30px;") %>
+        </span>
+  </div>
+  <% if user_signed_in? %>
+      <div id="logout" class="btn-header transparent pull-right">
+        <span> <%= link_to content_tag("i","",class: "fa fa-sign-out"), destroy_user_session_url, method: :delete %> </span>
+      </div>
+  <% end %>
+</header>

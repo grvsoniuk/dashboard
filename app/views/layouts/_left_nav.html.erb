@@ -1,0 +1,83 @@
+<!-- NAVIGATION : This navigation is also responsive
+
+  To make this navigation dynamic please make sure to link the node
+  (the reference to the nav > ul) after page load. Or the navigation
+  will not initialize.
+  -->
+<nav>
+  <!-- NOTE: Notice the gaps after each icon usage <i></i>..
+  Please note that these links work a bit different than
+  traditional href="" links. See documentation for details.
+  -->
+
+  <ul id="left-nav">
+    <li class="<%= left_nav_selection('dashboard') %>">
+      <a href="/dashboard" title="Dashboard">
+        <i class="fa fa-lg fa-fw fa-tachometer"></i>
+        <span class="menu-item-parent">Dashboard</span>
+      </a>
+    </li>
+    <% if can? :manage, Agent %>
+      <li class="<%= left_nav_selection('agents') %>">
+        <a href="/agents" title="Agents">
+          <i class="fa fa-lg fa-fw fa-user"></i>
+          <span class="menu-item-parent">Agents</span>
+        </a>
+      </li>
+    <% end %>
+    <% if can? :manage, Team %>
+      <li class="<%= left_nav_selection('teams') %>">
+        <a href="/teams" title="Teams">
+          <i class="fa fa-lg fa-fw fa-users"></i>
+          <span class="menu-item-parent">Teams</span>
+        </a>
+      </li>
+    <% end %>
+    <% if can? :manage, Agent %>
+      <li class="<%= left_nav_selection('agents', 'mapping') %>">
+        <a href="/agents/mapping" title="Agent Mapping">
+          <i class="fa fa-lg fa-fw fa-th-large"></i>
+          <span class="menu-item-parent">Agents Mapping</span>
+        </a>
+      </li>
+    <% end %>
+    <% if can? :manage, Office %>
+      <li class="<%= left_nav_selection('offices') %>">
+        <a href="/offices" title="Offices">
+          <i class="fa fa-lg fa-fw fa-building"></i>
+          <span class="menu-item-parent">Offices</span>
+        </a>
+      </li>
+    <% end %>
+    <% if can? :manage, User %>
+      <li class="<%= left_nav_selection('users') %>">
+        <a href="/users" title="Users">
+          <i class="fa fa-lg fa-fw fa-male"></i>
+          <span class="menu-item-parent">Users</span>
+        </a>
+      </li>
+    <% end %>
+    <% if can? :manage, Audit %>
+      <li class="<%= left_nav_selection('audits') %>">
+        <a href="/audits" title="Audits">
+          <i class="fa fa-lg fa-fw fa-user-secret"></i>
+          <span class="menu-item-parent">Audits</span>
+        </a>
+      </li>
+    <% end %>
+    <li class="<%= left_nav_selection('settings', 'change_password') %>">
+      <a href="/settings/change_password" title="Tests">
+        <i class="fa fa-lg fa-fw fa-key"></i>
+        <span class="menu-item-parent">Change Password</span>
+      </a>
+    </li>
+    <% if can? :manage, User %>
+      <li class="<%= left_nav_selection('dashboard', 'tests') %>">
+        <a href="/tests" title="Tests">
+          <i class="fa fa-lg fa-fw fa-gear"></i>
+          <span class="menu-item-parent">Tests</span>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</nav>

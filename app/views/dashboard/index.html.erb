@@ -1,0 +1,59 @@
+<%= form_tag search_url, remote: true, id: "search_form" do |f| %>
+  <fieldset>
+    <%= render "dashboard/search" %>
+  </fieldset>
+<% end %>
+<div class="row">
+  <div class="col-sm-6 col-md-6 col-lg-2">
+    <h2>Office Distribution</h2>
+    <%= render "dashboard/offices", offices: @offices, teams: @teams, priorities: @priorities, statuses: @statuses %>
+  </div>
+  <div class="col-sm-6 col-md-6 col-lg-2">
+    <h2>Team Distribution</h2>
+    <%= render "dashboard/teams", offices: @offices, teams: @teams, priorities: @priorities, statuses: @statuses %>
+  </div>
+  <div class="col-sm-12 col-md-12 col-lg-8">
+    <div class="pull-left"><h2>Agents and Tickets</h2></div>
+    <div class="pull-right">
+      <a id="modellink" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-danger" style="margin: 20px 0px;">
+        New and Unassigned Tickets
+      </a>
+    </div>
+    <div style="clear: both;"></div>
+    <%= render "dashboard/agents_and_tickets", agents: Agent.agents_by_offices_and_teams(@offices, @teams, @priorities, @statuses), tickets: Ticket.tickets_by_offices_and_teams %>
+    
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<% if current_user.refresh_interval > 0 %>
+  <script>
+    setTimeout(function(){$("#search_form").submit();}, <%= current_user.refresh_interval %>000);
+  </script>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    var url = "/new_tickets";
+    jQuery('#modellink').click(function(e) {
+      $('.modal-content').load(url,function(result){
+        $('#myModal').modal({show:true});
+        if (!$.fn.dataTable.isDataTable('#new_ticket_table')){
+          $('#new_ticket_table').dataTable({
+            "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'C>r>"+
+            "t"+
+            "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
+            "autoWidth" : true,
+            "order": [[ 0, "desc" ]]
+          });
+        }
+      });
+    });
+  });
+</script>

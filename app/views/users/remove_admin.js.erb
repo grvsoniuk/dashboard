@@ -1,0 +1,7 @@
+$('#remove_admin_<%=@user.id%>')
+    .replaceWith('<%= j( link_to "Make Admin",
+    user_make_admin_url(@user.id),
+    data: { confirm: "Are you sure?" },
+    remote: true,
+    class: "btn btn-warning btn-xs",
+    id: "make_admin_#{@user.id}" ) %>');

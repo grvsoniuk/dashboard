@@ -1,0 +1,5 @@
+<% Team.all.each do |team| %>
+	<div class="well well-sm well-light">
+	  <input type="radio" name="team" value="<%= team.id %>"/> <%= team.name.titlecase %>
+	</div>
+<% end %>

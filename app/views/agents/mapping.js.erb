@@ -1,0 +1,7 @@
+$("#failure").addClass("hidden");
+$("#success").addClass("hidden");
+<% if @result == "success" %>
+	$("#success").removeClass("hidden");
+<% else %>
+	$("#failure").removeClass("hidden");
+<% end %>

@@ -1,0 +1,33 @@
+zd:
+  region:
+    san_fransisco:
+      team:
+        eum:
+          - 4958205807 #Robert Petty
+          - 4958205677 #Hari Subramaniam
+        java:
+          - 4958205657 #Ashish Mehta
+        don_net:
+          - 4958205827 #Theo Jungeblut
+        dynamic_language:
+          - 4958205767 #Kyle Furlong
+    bangalore:
+      team:
+        eum:
+          - 4958206117 #Vasu
+        java:
+          - 4958205777 #Rajesh Putta
+          - 4958205797 #Ravi Giroti
+        don_net:
+          - 5964095127 #Abey Tom
+        dynamic_language:
+    bracknell:
+      team:
+        eum:
+          - 9472782587 #Gaurav Soni
+        java:
+          - 4958205577 #Chris Duncan
+        don_net:
+          - 4958205747 #Matt Jensen
+        dynamic_language:
+          - 4958205837 #Todd Radel
